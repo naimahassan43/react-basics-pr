@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ChangeState from "./components/ChangeState";
 import DisplayCounter from "./components/DisplayCounter";
 import DisplayFlag from "./components/DisplayFlag";
@@ -9,13 +9,13 @@ export function App() {
   const [count, setCount] = useState(0);
   const [flag, setFlag] = useState(true);
 
-  const onChangeCounter = () => {
+  const onChangeCounter = useCallback(() => {
     setCount(count + 1);
-  };
-  const onChangeFlag = () => {
+  }, [count]);
+  const onChangeFlag = useCallback(() => {
     setFlag(!flag);
-  };
-  useEffect(() => {});
+  }, [flag]);
+
   return (
     <div className="App">
       <Header />
