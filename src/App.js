@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
 export function App() {
-  const [h, setH] = useState("Default");
   const getData = (e) => {
-    setH(e.target.value);
-    console.log(e.target.value);
+    e.preventDefault();
+    console.log("Submitted");
   };
   return (
     <div className="App">
-      {/* <button onClick={getData}>Get Data</button> */}
-      <h1>{h}</h1>
-      <input onChange={getData} type="text" />
+      <form action="" onSubmit={getData}>
+        <input type="text" />
+
+        <input type="text" />
+
+        <input type="submit" value="Submit" />
+      </form>
     </div>
   );
 }
