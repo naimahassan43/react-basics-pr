@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import ChangeState from "./components/ChangeState";
 import DisplayCounter from "./components/DisplayCounter";
 import DisplayFlag from "./components/DisplayFlag";
