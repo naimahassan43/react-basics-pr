@@ -1,12 +1,12 @@
 import React from "react";
 
 export function App() {
-  const getData = () => {
-    console.log("Function called");
+  const getData = (e) => {
+    console.log(e.target.innerHTML);
   };
   return (
     <div className="App">
-      <button onClick={() => getData()}>Get Data</button>
+      <button onClick={getData}>Get Data</button>
     </div>
   );
 }
