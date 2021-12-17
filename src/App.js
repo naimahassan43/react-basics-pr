@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function App() {
+  const [h, setH] = useState("Default");
   const getData = (e) => {
-    console.log(e.target.innerHTML);
+    setH(e.target.value);
+    console.log(e.target.value);
   };
   return (
     <div className="App">
-      <button onClick={getData}>Get Data</button>
+      {/* <button onClick={getData}>Get Data</button> */}
+      <h1>{h}</h1>
+      <input onChange={getData} type="text" />
     </div>
   );
 }
