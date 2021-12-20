@@ -11,5 +11,14 @@ export const Products = (props) => {
     return <li>{item.pName}</li>;
   });
 
-  return props.isAdmin ? prodItems : <h1>No Data Found</h1>;
+  switch (props.isAdmin) {
+    case true:
+      return prodItems;
+      break;
+    case false:
+      return <h1>No Data Found</h1>;
+      break;
+    default:
+      return null;
+  }
 };
