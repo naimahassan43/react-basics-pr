@@ -4,15 +4,21 @@ export function App() {
   const [persInfo, setPersInfo] = useState({
     fname: "",
     lname: "",
-    phone: "",
+    phone: true,
   });
 
   const inputChangeHandler = (e) => {
-    setPersInfo({ ...persInfo, [e.target.name]: e.target.value });
+    setPersInfo((persInfo) => {
+      return { ...persInfo, [e.target.name]: e.target.value };
+    });
+  };
+  const inputCheckHandler = (e) => {
+    setPersInfo((persInfo) => {
+      return { ...persInfo, [e.target.name]: e.target.checked };
+    });
   };
   const showData = (e) => {
     e.preventDefault();
-    // setPersInfo(fname + " " + lname + "," + phone);
   };
   return (
     <div className="App">
@@ -32,9 +38,9 @@ export function App() {
         />
         <br />
         <input
-          type="text"
+          type="checkbox"
           placeholder="Phone Number"
-          onChange={inputChangeHandler}
+          onChange={inputCheckHandler}
           name="phone"
         />
         <br />
