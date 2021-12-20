@@ -7,11 +7,9 @@ export const Products = (props) => {
     { pCode: 3, pName: "Mangoes" },
   ]);
 
-  return props.isAdmin ? (
-    items.map((item) => {
-      return <li>{item.pName}</li>;
-    })
-  ) : (
-    <h1>No Data Found</h1>
-  );
+  const prodItems = items.map((item) => {
+    return <li>{item.pName}</li>;
+  });
+
+  return props.isAdmin ? prodItems : <h1>No Data Found</h1>;
 };
