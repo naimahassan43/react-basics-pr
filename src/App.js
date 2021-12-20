@@ -7,14 +7,8 @@ export function App() {
     phone: "",
   });
 
-  const fNameHandler = (e) => {
-    setPersInfo({ ...persInfo, fname: e.target.value });
-  };
-  const lNameHandler = (e) => {
-    setPersInfo({ ...persInfo, lname: e.target.value });
-  };
-  const phoneHandler = (e) => {
-    setPersInfo({ ...persInfo, phone: e.target.value });
+  const inputChangeHandler = (e) => {
+    setPersInfo({ ...persInfo, [e.target.name]: e.target.value });
   };
   const showData = (e) => {
     e.preventDefault();
@@ -23,11 +17,26 @@ export function App() {
   return (
     <div className="App">
       <form action="" onSubmit={showData}>
-        <input type="text" placeholder="First Name" onChange={fNameHandler} />
+        <input
+          type="text"
+          placeholder="First Name"
+          onChange={inputChangeHandler}
+          name="fname"
+        />
         <br />
-        <input type="text" placeholder="Last Name" onChange={lNameHandler} />
+        <input
+          type="text"
+          placeholder="Last Name"
+          onChange={inputChangeHandler}
+          name="lname"
+        />
         <br />
-        <input type="text" placeholder="Phone Number" onChange={phoneHandler} />
+        <input
+          type="text"
+          placeholder="Phone Number"
+          onChange={inputChangeHandler}
+          name="phone"
+        />
         <br />
         <input type="submit" value="Submit" />
       </form>
